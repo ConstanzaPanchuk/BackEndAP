@@ -1,4 +1,4 @@
- 
+  
 package com.portfolio.panchuk.Entity;
 
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @NotNull
     @Size(min = 1, max = 50, message = "no cumple con la longitud")
@@ -22,20 +22,32 @@ public class Persona {
     @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String apellido;
 
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String img;
 
+    @NotNull
     @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String titulo;
 
+    @NotNull
     @Size(min = 1, max = 200, message = "no cumple con la longitud")
     private String acercaDe;
 
-    public Long getId() {
+    public Persona() {
+    }
+
+    public Persona(String nombre, String apellido, String img, String titulo, String acercaDe) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.img = img;
+        this.titulo = titulo;
+        this.acercaDe = acercaDe;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
